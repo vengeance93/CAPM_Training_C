@@ -79,7 +79,7 @@ context transaction {
     entity purchaseorder: common.Amount,cuid{
         // key NODE_KEY: common.Guid @(title : '{i18n>PO_KEY}');
         PO_ID: String(40) @(title : '{i18n>PO_ID}');
-        PARTNER_GUID: Association to master.businesspartner@(title : '{i18n>PARTNER_KEY}');
+        PARTNER_GUID: Association to master.businesspartner@(tigittle : '{i18n>PARTNER_KEY}');
         LIFECYCLE_STATUS: String(1) @(title : '{i18n>STATUS}');
         OVERALL_STATUS: String(1) @(title : '{i18n>STATUS}');
         Items: Composition of many poitems on Items.PARENT_KEY = $self;
