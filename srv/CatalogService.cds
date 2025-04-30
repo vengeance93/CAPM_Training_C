@@ -6,7 +6,13 @@ service CatalogService @(path:'CatalogService') {
 
 
     // @readonly
-    entity EmployeeSet as projection on master.employees;
+    entity EmployeeSet@(restrict:[
+        {grant: ['READ'], to: 'Viewer', where: 'bankName = $user.BankName'},
+        {grant: ['WRITE'], to: 'Admin'}
+    ])    
+
+    
+     as projection on master.employees;
     entity AddressSet as projection on master.address;
     entity BusinessPartnerSet as projection on master.businesspartner;
     entity ProductSet as projection on master.product;
